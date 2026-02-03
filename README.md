@@ -1,2 +1,43 @@
-# ddt-standards
-Public standards-track proposals and specifications for Digital Double Technologies (DDT): non-enforcing consent, provenance, and digital likeness signaling aligned with C2PA-style interoperability.
+# DDT Standards
+
+This repository contains **public standards-track proposals and specifications** for Digital Double Technologies (DDT).
+
+## Non-Enforcement Posture (Core)
+
+DDT standards are **informational only**.
+
+They MUST NOT be used for:
+- moderation
+- ranking
+- suppression
+- enforcement
+- takedowns
+- behavioral or policy decisions
+
+DDT expresses declared consent and usage visibility, not compliance, legality, or obligation.
+
+## What Lives Here
+
+- Draft specifications (v0.x)
+- Public proposals and discussion issues
+- Non-enforcement and platform-safety clarifications
+- C2PA-aligned extension exploration (consent/rights visibility)
+
+## What Does NOT Live Here
+
+- Private implementations
+- Internal automation outputs
+- Sensitive operational details
+- Enforcement mechanisms
+- Legal determinations
+
+## Structure
+
+- `docs/` — specifications and public explainers
+- `proposals/` — proposal drafts and supporting materials
+
+## Contributing
+
+Standards collaboration is welcome.
+Open an issue to propose changes or request discussion.
+
