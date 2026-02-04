@@ -1,0 +1,20 @@
+{
+  "assertion_name": "ddt.cro_binding",
+  "spec_version": "0.1.0",
+  "consent_receipt_ref": {
+    "consent_receipt_id": "22222222-2222-2222-2222-222222222222",
+    "receipt_hash": "QmJhc2U2NHVybF9leGFtcGxlX2hhc2hfMDI",
+    "hash_alg": "sha-256",
+    "resolver_hint": null
+  },
+  "identity_context_ref": {
+    "identity_context_id": "ico:ddt:opaque:actor-context:02",
+    "identity_hash": "QmJhc2U2NHVybF9leGFtcGxlX2lkX2hhc2hfMDI",
+    "hash_alg": "sha-256",
+    "resolver_hint": null
+  },
+  "usage_policy_summary": "Informational-only: CRO governs consent scope and lifecycle. This field grants nothing.",
+  "revocation_reference": null,
+  "media_binding": null,
+  "extensions": {}
+}
