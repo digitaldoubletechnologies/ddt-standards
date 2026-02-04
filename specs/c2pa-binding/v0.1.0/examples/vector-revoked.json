@@ -1,0 +1,23 @@
+{
+  "assertion_name": "ddt.cro_binding",
+  "spec_version": "0.1.0",
+  "consent_receipt_ref": {
+    "consent_receipt_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "receipt_hash": "QmJhc2U2NHVybF92ZWN0b3JfcmV2b2tlZA",
+    "hash_alg": "sha-256",
+    "resolver_hint": null
+  },
+  "identity_context_ref": null,
+  "usage_policy_summary": null,
+  "revocation_reference": {
+    "status_url": "https://resolver.ddt.dev/cro/status/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "last_checked": null,
+    "cache_ttl_seconds": null
+  },
+  "media_binding": null,
+  "extensions": {
+    "ddt_test_vector": {
+      "non_normative_expected_cro_status": "revoked"
+    }
+  }
+}
