@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ddt.dev/specs/c2pa-binding/v0.1.0/ddt.cro_binding.schema.json",
+  "title": "DDT C2PA Assertion Payload — ddt.cro_binding",
+  "description": "Privacy-preserving, reference-only binding payload intended to be carried inside a C2PA custom assertion. This payload references (but does not grant) consent by pointing to an authoritative Consent Receipt Object (CRO) via ID + receipt_hash only. No PII or biometrics permitted.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assertion_name",
+    "spec_version",
+    "consent_receipt_ref",
+    "extensions"
+  ],
+  "properties": {
+    "assertion_name": {
+      "type": "string",
+      "const": "ddt.cro_binding",
+      "description": "The DDT assertion payload name. This schema describes the JSON payload that may be embedded within a C2PA custom assertion."
+    },
+    "spec_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z-.]+)?(?:\\+[0-9A-Za-z-.]+)?$",
+      "description": "SemVer for this binding payload specification. Example: 0.1.0"
+    },
+    "consent_receipt_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consent_receipt_id",
+        "receipt_hash",
+        "hash_alg"
+      ],
+      "properties": {
+        "consent_receipt_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Globally unique identifier of the authoritative CRO being referenced."
+        },
+        "receipt_hash": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Base64url-encoded digest of the CRO computed over canonical serialization (see docs). This is a tamper-evident reference; it is not a proof of permission."
+        },
+        "hash_alg": {
+          "type": "string",
+          "enum": ["sha-256"],
+          "description": "Digest algorithm used to compute receipt_hash."
+        },
+        "resolver_hint": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Optional hint URI for CRO resolution. Verifiers MUST NOT treat this as authoritative if it conflicts with their configured resolvers."
+        }
+      }
+    },
+    "identity_context_ref": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": [
+        "identity_context_id",
+        "identity_hash",
+        "hash_alg"
+      ],
+      "properties": {
+        "identity_context_id": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 256,
+          "description": "Opaque identifier for an Identity Context Object (ICO) or equivalent. MUST NOT be plaintext PII."
+        },
+        "identity_hash": {
+          "type": "string",
+          "minLength": 16,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Base64url-encoded digest of the referenced identity context object computed over canonical serialization."
+        },
+        "hash_alg": {
+          "type": "string",
+          "enum": ["sha-256"],
+          "description": "Digest algorithm used to compute identity_hash."
+        },
+        "resolver_hint": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Optional hint URI for identity context resolution. Non-authoritative."
+        }
+      }
+    },
+    "usage_policy_summary": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 1024,
+      "description": "Non-binding, informational-only human/machine-readable summary. MUST NOT be treated as a grant of rights or permission."
+    },
+    "revocation_reference": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": [
+        "status_url"
+      ],
+      "properties": {
+        "status_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Endpoint where a verifier may check current CRO lifecycle state (active/revoked/expired/superseded). Verifiers MUST fail closed if they cannot resolve required state for a DDT-compliance determination."
+        },
+        "last_checked": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Optional timestamp indicating when status_url was last queried by the producer."
+        },
+        "cache_ttl_seconds": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "maximum": 604800,
+          "description": "Optional caching hint for status resolution. Non-authoritative; verifiers may enforce stricter TTL."
+        }
+      }
+    },
+    "media_binding": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "Optional additional binding anchors. These DO NOT replace C2PA signature verification; they are additional integrity hints.",
+      "required": [],
+      "properties": {
+        "asset_hash": {
+          "type": ["string", "null"],
+          "minLength": 16,
+          "maxLength": 256,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "description": "Optional base64url digest of the media asset bytes or C2PA claim hash, computed per documented rules. If present, verifiers MAY use it to detect substitution."
+        },
+        "hash_alg": {
+          "type": ["string", "null"],
+          "enum": ["sha-256"],
+          "description": "Digest algorithm used for asset_hash (if present)."
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Forward-compatible extension bucket. All non-standard additions MUST go here. Unknown fields MUST be ignored safely by verifiers."
+    }
+  }
+}
