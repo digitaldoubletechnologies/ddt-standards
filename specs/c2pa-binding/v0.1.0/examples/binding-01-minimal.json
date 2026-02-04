@@ -1,0 +1,15 @@
+{
+  "assertion_name": "ddt.cro_binding",
+  "spec_version": "0.1.0",
+  "consent_receipt_ref": {
+    "consent_receipt_id": "11111111-1111-1111-1111-111111111111",
+    "receipt_hash": "QmJhc2U2NHVybF9leGFtcGxlX2hhc2hfMDE",
+    "hash_alg": "sha-256",
+    "resolver_hint": null
+  },
+  "identity_context_ref": null,
+  "usage_policy_summary": null,
+  "revocation_reference": null,
+  "media_binding": null,
+  "extensions": {}
+}
