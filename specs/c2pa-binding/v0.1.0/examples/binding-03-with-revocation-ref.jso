@@ -1,0 +1,19 @@
+{
+  "assertion_name": "ddt.cro_binding",
+  "spec_version": "0.1.0",
+  "consent_receipt_ref": {
+    "consent_receipt_id": "33333333-3333-3333-3333-333333333333",
+    "receipt_hash": "QmJhc2U2NHVybF9leGFtcGxlX2hhc2hfMDM",
+    "hash_alg": "sha-256",
+    "resolver_hint": "https://resolver.ddt.dev/cro/33333333-3333-3333-3333-333333333333"
+  },
+  "identity_context_ref": null,
+  "usage_policy_summary": "Informational-only: This asset references an authoritative CRO by ID+hash. Consent validity is determined only by CRO status.",
+  "revocation_reference": {
+    "status_url": "https://resolver.ddt.dev/cro/status/33333333-3333-3333-3333-333333333333",
+    "last_checked": "2026-02-04T14:00:00Z",
+    "cache_ttl_seconds": 3600
+  },
+  "media_binding": null,
+  "extensions": {}
+}
