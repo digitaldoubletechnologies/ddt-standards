@@ -1,0 +1,29 @@
+{
+  "assertion_name": "ddt.cro_binding",
+  "spec_version": "0.1.0",
+  "consent_receipt_ref": {
+    "consent_receipt_id": "55555555-5555-5555-5555-555555555555",
+    "receipt_hash": "QmJhc2U2NHVybF9leGFtcGxlX2hhc2hfMDU",
+    "hash_alg": "sha-256",
+    "resolver_hint": "https://resolver.ddt.dev/cro/55555555-5555-5555-5555-555555555555"
+  },
+  "identity_context_ref": {
+    "identity_context_id": "ico:ddt:opaque:actor-context:05",
+    "identity_hash": "QmJhc2U2NHVybF9leGFtcGxlX2lkX2hhc2hfMDU",
+    "hash_alg": "sha-256",
+    "resolver_hint": "https://resolver.ddt.dev/ico/ico:ddt:opaque:actor-context:05"
+  },
+  "usage_policy_summary": "Informational-only: CRO is the sole source of truth for consent scope and lifecycle. This field is advisory and non-binding.",
+  "revocation_reference": {
+    "status_url": "https://resolver.ddt.dev/cro/status/55555555-5555-5555-5555-555555555555",
+    "last_checked": "2026-02-04T14:00:00Z",
+    "cache_ttl_seconds": 600
+  },
+  "media_binding": {
+    "asset_hash": "QmJhc2U2NHVybF9leGFtcGxlX2Fzc2V0X2hhc2hfMDU",
+    "hash_alg": "sha-256"
+  },
+  "extensions": {
+    "ddt.note": "Non-normative example payload for implementers."
+  }
+}
