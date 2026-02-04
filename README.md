@@ -2,6 +2,8 @@
 
 This repository contains **public standards-track proposals and specifications** for Digital Double Technologies (DDT).
 
+DDT is a non-enforcing, informational system for binding creator-declared consent and identity context to media using C2PA / Content Credentials.
+
 ## Non-Enforcement Posture (Core)
 
 DDT standards are **informational only**.
