@@ -37,6 +37,7 @@ DDT expresses declared consent and usage visibility, not compliance, legality, o
 
 - `docs/` — specifications and public explainers
 - `proposals/` — proposal drafts and supporting materials
+- `specs/README.md` - standards-track specifications and schemas
 
 ## Contributing
 
